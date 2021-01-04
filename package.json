@@ -1,0 +1,21 @@
+{
+  "name": "online-examination-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "npm start --prefix frontend",
+    "server": "npm start --prefix backend",
+    "json-server": "json-server --watch data.json --port 8000 --middlewares range.js",
+    "dev": "concurrently \"npm run client\" \"npm run server\"",
+    "json": "concurrently \"npm run client\" \"npm run json-server\""
+  },
+  "keywords": [],
+  "author": "jactrajano@neu.edu.ph",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^5.3.0",
+    "json-server": "^0.16.3",
+    "json-server-relationship": "^0.14.5"
+  }
+}

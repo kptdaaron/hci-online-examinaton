@@ -2,61 +2,61 @@ const Role = require('../models/Role');
 
 module.exports = {
   //# create a role
-  create: async (request, reply) => {
+  create: async (req, res) => {
     try {
-      const role = request.body;
+      const role = req.body;
       const newRole = await Role.create(role);
-      reply.code(201).send(newRole);
+      res.status(201).send(newRole);
     } catch (e) {
-      reply.code(500).send(e);
+      res.status(500).send(e);
     }
   },
 
   //#get the list of roles
-  fetch: async (request, reply) => {
+  fetch: async (req, res) => {
     try {
       const roles = await Role.find({});
-      // reply.setHeader('Access-Control-Expose-Headers', 'Content-Range');
-      // reply.setHeader('Content-Range', 0-5/5);
-      reply.code(200).send(roles);
+      res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
+      res.setHeader('Content-Range', 0-5/5);
+      res.status(200).send(roles);
     } catch (e) {
-      reply.code(500).send(e);
+      res.status(500).send(e);
     }
   },
 
   //#get a single role
-  get: async (request, reply) => {
+  get: async (req, res) => {
     try {
-      const roleId = request.params.id;
+      const roleId = req.params.id;
       const role = await Role.findById(roleId);
-      reply.code(200).send(role);
+      res.status(200).send(role);
     } catch (e) {
-      reply.code(500).send(e);
+      res.status(500).send(e);
     }
   },
 
   //#update a role
-  update: async (request, reply) => {
+  update: async (req, res) => {
     try {
-      const roleId = request.params.id;
-      const updates = request.body;
+      const roleId = req.params.id;
+      const updates = req.body;
       await Role.findByIdAndUpdate(roleId, updates);
       const roleToUpdate = await Role.findById(roleId);
-      reply.code(200).send({ data: roleToUpdate });
+      res.status(200).send({ data: roleToUpdate });
     } catch (e) {
-      reply.code(500).send(e);
+      res.status(500).send(e);
     }
   },
 
   //#delete a role
-  delete: async (request, reply) => {
+  delete: async (req, res) => {
     try {
-      const roleId = request.params.id;
+      const roleId = req.params.id;
       const roleToDelete = await Role.findById(roleId);
       await Role.findByIdAndDelete(roleId);
-      reply.code(200).send({ data: roleToDelete });
+      res.status(200).send({ data: roleToDelete });
     } catch (e) {
-      reply.code(500).send(e);
+      res.status(500).send(e);
     }
   },
 };

@@ -2,59 +2,61 @@ const Course = require('../models/Course');
 
 module.exports = {
   //# create a course
-  create: async (request, reply) => {
+  create: async (req, res) => {
     try {
-      const course = request.body;
+      const course = req.body;
       const newCourse = await Course.create(course);
-      reply.code(201).send(newCourse);
+      res.status(201).send(newCourse);
     } catch (e) {
-      reply.code(500).send(e);
+      res.status(500).send(e);
     }
   },
 
   //#get the list of courses
-  fetch: async (request, reply) => {
+  fetch: async (req, res) => {
     try {
       const courses = await Course.find({});
-      reply.code(200).send(courses);
+      res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
+      res.setHeader('Content-Range', 0-5/5);
+      res.status(200).send(courses);
     } catch (e) {
-      reply.code(500).send(e);
+      res.status(500).send(e);
     }
   },
 
   //#get a single course
-  get: async (request, reply) => {
+  get: async (req, res) => {
     try {
-      const courseId = request.params.id;
+      const courseId = req.params.id;
       const course = await Course.findById(courseId);
-      reply.code(200).send(course);
+      res.status(200).send(course);
     } catch (e) {
-      reply.code(500).send(e);
+      res.status(500).send(e);
     }
   },
 
   //#update a course
-  update: async (request, reply) => {
+  update: async (req, res) => {
     try {
-      const courseId = request.params.id;
-      const updates = request.body;
+      const courseId = req.params.id;
+      const updates = req.body;
       await Course.findByIdAndUpdate(courseId, updates);
       const courseToUpdate = await Course.findById(courseId);
-      reply.code(200).send({ data: courseToUpdate });
+      res.status(200).send({ data: courseToUpdate });
     } catch (e) {
-      reply.code(500).send(e);
+      res.status(500).send(e);
     }
   },
 
   //#delete a course
-  delete: async (request, reply) => {
+  delete: async (req, res) => {
     try {
-      const courseId = request.params.id;
+      const courseId = req.params.id;
       const courseToDelete = await Course.findById(courseId);
       await Course.findByIdAndDelete(courseId);
-      reply.code(200).send({ data: courseToDelete });
+      res.status(200).send({ data: courseToDelete });
     } catch (e) {
-      reply.code(500).send(e);
+      res.status(500).send(e);
     }
   },
 };

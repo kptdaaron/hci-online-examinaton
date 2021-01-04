@@ -1,4 +1,5 @@
-const fastify = require("fastify");
+// const fastify = require("fastify");
+const express = require('express')
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const dbConfig = require("./config");
@@ -7,20 +8,21 @@ const roleRoutes = require('./routes/roleRoute')
 const programRoutes  = require('./routes/programRoute');
 const courseRoutes = require('./routes/courseRoute');
 const examRoutes = require('./routes/examRoute');
-const app = fastify();
+// const app = fastify();
+const app = express();
 const userRangeHook = require('./hooks/userRangeHook');
 
-// var corsOptions = {
-//   origin: "http://localhost:8081"
-// };
+var corsOptions = {
+  origin: "http://localhost:8081"
+};
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 // parse requests of content-type - application/x-www-form-urlencoded
-// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = require("./models");
 const Role = db.role;
@@ -89,8 +91,8 @@ function initial() {
     }
   });
 }
-const userRange = app.addHook('preHandler', userRangeHook);
-userRoutes(userRange);
+// const userRange = app.addHook('preHandler', userRangeHook);
+userRoutes(app);
 roleRoutes(app);
 programRoutes(app);
 courseRoutes(app);

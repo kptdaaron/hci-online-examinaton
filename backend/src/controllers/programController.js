@@ -2,59 +2,61 @@ const Program = require('../models/Program');
 
 module.exports = {
   //# create a program
-  create: async (request, reply) => {
+  create: async (req, res) => {
     try {
-      const program = request.body;
+      const program = req.body;
       const newProgram = await Program.create(program);
-      reply.code(201).send(newProgram);
+      res.status(201).send(newProgram);
     } catch (e) {
-      reply.code(500).send(e);
+      res.status(500).send(e);
     }
   },
 
   //#get the list of programs
-  fetch: async (request, reply) => {
+  fetch: async (req, res) => {
     try {
       const programs = await Program.find({});
-      reply.code(200).send(programs);
+      res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
+      res.setHeader('Content-Range', 0-5/5);
+      res.status(200).send(programs);
     } catch (e) {
-      reply.code(500).send(e);
+      res.status(500).send(e);
     }
   },
 
   //#get a single program
-  get: async (request, reply) => {
+  get: async (req, res) => {
     try {
-      const programId = request.params.id;
+      const programId = req.params.id;
       const program = await Program.findById(programId);
-      reply.code(200).send(program);
+      res.status(200).send(program);
     } catch (e) {
-      reply.code(500).send(e);
+      res.status(500).send(e);
     }
   },
 
   //#update a program
-  update: async (request, reply) => {
+  update: async (req, res) => {
     try {
-      const programId = request.params.id;
-      const updates = request.body;
+      const programId = req.params.id;
+      const updates = req.body;
       await Program.findByIdAndUpdate(programId, updates);
       const programToUpdate = await Program.findById(programId);
-      reply.code(200).send({ data: programToUpdate });
+      res.status(200).send({ data: programToUpdate });
     } catch (e) {
-      reply.code(500).send(e);
+      res.status(500).send(e);
     }
   },
 
   //#delete a program
-  delete: async (request, reply) => {
+  delete: async (req, res) => {
     try {
-      const programId = request.params.id;
+      const programId = req.params.id;
       const programToDelete = await Program.findById(programId);
       await Program.findByIdAndDelete(programId);
-      reply.code(200).send({ data: programToDelete });
+      res.status(200).send({ data: programToDelete });
     } catch (e) {
-      reply.code(500).send(e);
+      res.status(500).send(e);
     }
   },
 };

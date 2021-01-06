@@ -1,9 +1,11 @@
 import * as React from "react";
-import Card from '@material-ui/core/Card';
-import { Title } from 'react-admin';
-// eslint-disable-next-line import/no-anonymous-default-export
+import Card from "@material-ui/core/Card";
+import { CardContent, CardHeader } from "@material-ui/core";
+import { Title } from "react-admin";
+
 export default () => (
-    <Card>
-        <Title title="Online Examination System" />
-    </Card>
+  <Card>
+    <CardHeader title="Online Examination System" />
+    <CardContent>HCI Course Project</CardContent>
+  </Card>
 );

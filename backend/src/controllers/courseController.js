@@ -16,8 +16,9 @@ module.exports = {
   fetch: async (req, res) => {
     try {
       const courses = await Course.find({});
+      const count = await Course.countDocuments({});
       res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
-      res.setHeader('Content-Range', 0-5/5);
+      res.setHeader('Content-Range', `courses 0-${count}/${count}`);
       res.status(200).send(courses);
     } catch (e) {
       res.status(500).send(e);

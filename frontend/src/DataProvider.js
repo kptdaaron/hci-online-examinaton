@@ -1,9 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
 
-import { fetchUtils } from 'react-admin';
-import { stringify } from 'query-string';
+import { fetchUtils } from "react-admin";
+import { stringify } from "query-string";
 
-const apiUrl = 'http://localhost:3000/api';
+const apiUrl = "http://103.137.220.250:3000/api";
 const httpClient = fetchUtils.fetchJson;
 
 export default {
@@ -18,10 +18,10 @@ export default {
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
 
     const { headers, json } = await httpClient(url);
-        return ({
-            data: json.map((resource_1) => ({ ...resource_1, id: resource_1._id })),
-            total: parseInt(headers.get('content-range').split('/').pop(), 10),
-        });
+    return {
+      data: json.map((resource_1) => ({ ...resource_1, id: resource_1._id })),
+      total: parseInt(headers.get("content-range").split("/").pop(), 10),
+    };
   },
   getOne: (resource, params) =>
     httpClient(`${apiUrl}/${resource}/${params.id}`).then(({ json }) => ({
@@ -34,9 +34,9 @@ export default {
     };
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
     const { json } = await httpClient(url);
-      return ({
-          data: json.map((resource_1) => ({ ...resource_1, id: resource_1._id })),
-      });
+    return {
+      data: json.map((resource_1) => ({ ...resource_1, id: resource_1._id })),
+    };
   },
 
   getManyReference: async (resource, params) => {
@@ -53,15 +53,15 @@ export default {
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
 
     const { headers, json } = await httpClient(url);
-      return ({
-          data: json.map((resource_1) => ({ ...resource_1, id: resource_1._id })),
-          total: parseInt(headers.get('content-range').split('/').pop(), 10),
-      });
+    return {
+      data: json.map((resource_1) => ({ ...resource_1, id: resource_1._id })),
+      total: parseInt(headers.get("content-range").split("/").pop(), 10),
+    };
   },
 
   update: (resource, params) =>
     httpClient(`${apiUrl}/${resource}/${params.id}`, {
-      method: 'PUT',
+      method: "PUT",
       body: JSON.stringify(params.data),
     }).then(({ json }) => ({ ...json, id: json._id })),
 
@@ -69,16 +69,19 @@ export default {
     const query = {
       filter: JSON.stringify({ id: params.ids }),
     };
-    const { json } = await httpClient(`${apiUrl}/${resource}?${stringify(query)}`, {
-          method: 'PUT',
-          body: JSON.stringify(params.data),
-      });
-      return ({ data: json });
+    const { json } = await httpClient(
+      `${apiUrl}/${resource}?${stringify(query)}`,
+      {
+        method: "PUT",
+        body: JSON.stringify(params.data),
+      }
+    );
+    return { data: json };
   },
 
   create: (resource, params) =>
     httpClient(`${apiUrl}/${resource}`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify(params.data),
     }).then(({ json }) => ({
       data: { ...params.data, id: json._id },
@@ -86,8 +89,8 @@ export default {
 
   delete: (resource, params) =>
     httpClient(`${apiUrl}/${resource}/${params.id}`, {
-      method: 'DELETE',
-      body: JSON.stringify(params.id),
+      method: "DELETE",
+      body: JSON.stringify(params.data),
     }).then(({ json }) => ({
       ...json,
       id: json._id,
@@ -97,10 +100,13 @@ export default {
     const query = {
       filter: JSON.stringify({ id: params.ids }),
     };
-    const { json } = await httpClient(`${apiUrl}/${resource}?${stringify(query)}`, {
-          method: 'DELETE',
-          body: JSON.stringify(params.data),
-      });
-      return ({ data: json });
+    const { json } = await httpClient(
+      `${apiUrl}/${resource}?${stringify(query)}`,
+      {
+        method: "DELETE",
+        body: JSON.stringify(params.data),
+      }
+    );
+    return { data: json };
   },
 };

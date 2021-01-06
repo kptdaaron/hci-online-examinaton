@@ -1,4 +1,4 @@
-const Role = require('../models/Role');
+const Role = require("../models/Role");
 
 module.exports = {
   //# create a role
@@ -16,8 +16,8 @@ module.exports = {
   fetch: async (req, res) => {
     try {
       const roles = await Role.find({});
-      res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
-      res.setHeader('Content-Range', 0-5/5);
+      res.setHeader("Access-Control-Expose-Headers", "Content-Range");
+      res.setHeader("Content-Range", 0 - 5 / 5);
       res.status(200).send(roles);
     } catch (e) {
       res.status(500).send(e);

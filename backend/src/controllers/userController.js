@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const User = require("../models/User");
 
 module.exports = {
   //# create a user
@@ -16,8 +16,9 @@ module.exports = {
   fetch: async (req, res) => {
     try {
       const users = await User.find({});
-      res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
-      res.setHeader('Content-Range', 0-5/5);
+      const count = await User.countDocuments({});
+      res.setHeader("Access-Control-Expose-Headers", "Content-Range");
+      res.setHeader("Content-Range", `users 0-${count}/${count}`);
       res.status(200).send(users);
     } catch (e) {
       res.status(500).send(e);

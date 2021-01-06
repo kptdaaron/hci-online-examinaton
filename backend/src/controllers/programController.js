@@ -16,8 +16,9 @@ module.exports = {
   fetch: async (req, res) => {
     try {
       const programs = await Program.find({});
+      const count = await Program.countDocuments({});
       res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
-      res.setHeader('Content-Range', 0-5/5);
+      res.setHeader('Content-Range', `Programs 0-${count}/${count}`);
       res.status(200).send(programs);
     } catch (e) {
       res.status(500).send(e);

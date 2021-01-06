@@ -1,18 +1,19 @@
-const mongoose = require ('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
-// @Create User Schema
-const UserSchema = new Schema({
-    id: { type: String, unique: true, sparse: true  },
-    user_id: { type: String, required: true, unique: true },
-    email: { type: String, required: true, unique: true },
+const UserSchema = new Schema(
+  {
+    id: { type: mongoose.Schema.Types.ObjectId },
+    user_id: { type: String, required: true },
+    email: { type: String, required: true },
     password: { type: String, required: true, minlength: 5 },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    roles: [{ type: mongoose.Schema.Types.ObjectId, ref: "Role" }],
-    exams: []
-})
+    role: [{ type: mongoose.Schema.Types.ObjectId, ref: "Role" }],
+    exams: [{ type: mongoose.Schema.Types.ObjectId, ref: "Exam" }],
+  },
+  { timestamps: true }
+);
 
 const User = mongoose.model("users", UserSchema);
 

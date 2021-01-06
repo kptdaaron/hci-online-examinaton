@@ -1,5 +1,5 @@
-const roleController = require('../controllers/roleController');
+const roleController = require("../controllers/roleController");
 
 module.exports = (app) => {
-    app.get('/api/roles', roleController.fetch);
-}
+  app.get("/api/role", roleController.fetch);
+};

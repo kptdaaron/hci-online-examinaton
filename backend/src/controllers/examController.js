@@ -1,4 +1,4 @@
-const Exam = require('../models/Exam');
+const Exam = require("../models/Exam");
 
 module.exports = {
   //# create a exam
@@ -17,8 +17,8 @@ module.exports = {
     try {
       const exams = await Exam.find({});
       const count = await Exam.countDocuments({});
-      res.setHeader('Access-Control-Expose-Headers', 'Content-Range');
-      res.setHeader('Content-Range', `Exams 0-${count}/${count}`);
+      res.setHeader("Access-Control-Expose-Headers", "Content-Range");
+      res.setHeader("Content-Range", `exams 0-${count}/${count}`);
       res.status(200).send(exams);
     } catch (e) {
       res.status(500).send(e);

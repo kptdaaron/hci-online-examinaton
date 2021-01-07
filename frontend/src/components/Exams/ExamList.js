@@ -1,23 +1,35 @@
-import React from 'react'
-import { List, Datagrid, TextField, EditButton, DeleteButton } from 'react-admin'
+import React from "react";
+import {
+  List,
+  Datagrid,
+  TextField,
+  EditButton,
+  DeleteButton,
+  ReferenceField,
+  ChipField,
+  DateField,
+} from "react-admin";
 
 const ExamList = (props) => {
-    return <List {...props}>
-            <Datagrid>
-                <TextField source='id' />
-                <TextField label='Tagged Subject' source='subjectTag' />
-                <TextField label='Exam Title' source='examTitle' />
-                <TextField label='Schedule' source='examDate' />
-                <TextField label='Duration' source='examDuration' />
-                <TextField label='Created' source='publishedAt' />
-                <TextField label='Marks Per Right' source='marksPerRightAnswer' fullWidth='true' />
-                <TextField label='Marks Per Wrong' source='marksPerRightAnswer' />
-                <TextField label='Status' source='status' />
-                <EditButton basePath='/subjects' />
-                <DeleteButton basePath='/subjects' />
-            </Datagrid>
-        </List>
-    
+  return (
+    <List {...props}>
+      <Datagrid>
+        <ReferenceField source="course" reference="courses">
+          <ChipField source="title" />
+        </ReferenceField>
+        <ReferenceField source="program" reference="programs">
+          <ChipField source="title" />
+        </ReferenceField>
+        <TextField label="Exam Title" source="title" />
+        <DateField label="Start" source="examDate.start" />
+        <DateField label="End" source="examDate.end" />
+        <TextField label="Duration" source="duration" />
+        <TextField label="Marks" source="marks" />
+        <EditButton basePath="/exams" />
+        <DeleteButton basePath="/exams" />
+      </Datagrid>
+    </List>
+  );
 };
 
 export default ExamList;

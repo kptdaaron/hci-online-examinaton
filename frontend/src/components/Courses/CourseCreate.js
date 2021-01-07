@@ -13,7 +13,7 @@ const CourseCreate = (props) => {
     <Create title="Create Course" {...props}>
       <SimpleForm title="Add Course">
         <ReferenceInput
-          label="Tagged Program"
+          label="Tag Program"
           source="tags"
           reference="programs"
           validate={required()}

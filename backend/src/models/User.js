@@ -12,6 +12,7 @@ const UserSchema = new Schema(
     role: [{ type: mongoose.Schema.Types.ObjectId, ref: "Role" }],
     exam: [{ type: mongoose.Schema.Types.ObjectId, ref: "Exam" }],
     course: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
+    program: [{ type: mongoose.Schema.Types.ObjectId, ref: "Program" }],
   },
   { timestamps: true }
 );

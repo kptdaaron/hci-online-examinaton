@@ -21,6 +21,7 @@ const ProgramList = (props) => {
           <ChipField source="course_id" />
         </ArrayField>
         <EditButton basePath="/programs" />
+        <DeleteButton basePath="/programs" />
       </Datagrid>
     </List>
   );

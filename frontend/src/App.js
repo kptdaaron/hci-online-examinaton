@@ -11,7 +11,7 @@ import UserCreate from "./components/Users/UserCreate";
 import CourseList from "./components/Courses/CourseList";
 import CourseCreate from "./components/Courses/CourseCreate";
 import CourseEdit from "./components/Courses/CourseEdit";
-// Imports for Subjects
+// Imports for Exams
 import ProgramList from "./components/Programs/ProgramList";
 import ProgramCreate from "./components/Programs/ProgramCreate";
 import ProgramEdit from "./components/Programs/ProgramEdit";
@@ -70,8 +70,14 @@ function App() {
         create={CourseCreate}
         edit={CourseEdit}
       />
-      {/* <Resource icon={PostIcon} name='subjects' list={SubjectList} create={SubjectCreate} edit={SubjectEdit} /> */}
-      <Resource icon={BallotIcon} options={{ label: "Exams" }} name="exam" />
+      <Resource
+        icon={PostIcon}
+        options={{ label: "Exams" }}
+        name="exams"
+        list={ExamList}
+        create={ExamCreate}
+        edit={ExamEdit}
+      />
       <Resource name="role" />
     </Admin>
   );

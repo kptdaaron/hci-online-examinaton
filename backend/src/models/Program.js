@@ -7,7 +7,7 @@ const ProgramSchema = new Schema(
     program_id: { type: String, required: true, unique: true },
     title: { type: String, required: true, unique: true },
     description: { type: String, required: true },
-    tags: { type: mongoose.Schema.Types.ObjectId, ref: "Course" },
+    tags: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
   },
   { timestamps: true }
 );

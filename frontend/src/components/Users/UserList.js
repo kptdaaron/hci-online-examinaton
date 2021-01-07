@@ -25,6 +25,7 @@ const UserList = (props) => {
           <ChipField source="name" />
         </ReferenceField>
         <EditButton basePath="/users" />
+        <DeleteButton basePath="/users" />
       </Datagrid>
     </List>
   );

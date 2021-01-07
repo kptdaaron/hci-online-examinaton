@@ -31,18 +31,25 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
-      margin: theme.spacing(1),
+      margin: theme.spacing(2),
     },
   },
   button: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(2),
   },
 }));
 
 function Exam() {
   const classes = useStyles();
   const [inputFields, setInputFields] = useState([
-    { id: uuidv4(), question: "", lastName: "" },
+    {
+      id: uuidv4(),
+      question: "",
+      correctAnswer: "",
+      filler1: "",
+      filler2: "",
+      filler3: "",
+    },
   ]);
 
   const handleSubmit = (e) => {
@@ -64,7 +71,14 @@ function Exam() {
   const handleAddFields = () => {
     setInputFields([
       ...inputFields,
-      { id: uuidv4(), question: "", lastName: "" },
+      {
+        id: uuidv4(),
+        question: "",
+        correctAnswer: "",
+        filler1: "",
+        filler2: "",
+        filler3: "",
+      },
     ]);
   };
 
@@ -96,28 +110,28 @@ function Exam() {
               name="correctAnswer"
               label="Correct Answer"
               variant="filled"
-              value={inputField.lastName}
+              value={inputField.correctAnswer}
               onChange={(event) => handleChangeInput(inputField.id, event)}
             />
             <TextField
-              name="lastName"
+              name="filler1"
               label="Filler"
               variant="filled"
-              value={inputField.lastName}
+              value={inputField.filler}
               onChange={(event) => handleChangeInput(inputField.id, event)}
             />
             <TextField
-              name="lastName"
+              name="filler2"
               label="Filler"
               variant="filled"
-              value={inputField.lastName}
+              value={inputField.filler}
               onChange={(event) => handleChangeInput(inputField.id, event)}
             />
             <TextField
-              name="lastName"
+              name="filler3"
               label="Filler"
               variant="filled"
-              value={inputField.lastName}
+              value={inputField.filler}
               onChange={(event) => handleChangeInput(inputField.id, event)}
             />
             <IconButton

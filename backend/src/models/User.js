@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const UserSchema = new Schema(
   {
@@ -10,7 +10,8 @@ const UserSchema = new Schema(
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
     role: [{ type: mongoose.Schema.Types.ObjectId, ref: "Role" }],
-    exams: [{ type: mongoose.Schema.Types.ObjectId, ref: "Exam" }],
+    exam: [{ type: mongoose.Schema.Types.ObjectId, ref: "Exam" }],
+    course: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
   },
   { timestamps: true }
 );

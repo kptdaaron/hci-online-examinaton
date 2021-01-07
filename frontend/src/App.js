@@ -1,5 +1,5 @@
 import React from "react";
-import { Admin, Resource, Layout } from "react-admin";
+import { Admin, Resource, Layout, ListGuesser, EditGuesser } from "react-admin";
 import TreeMenu from "@bb-tech/ra-treemenu";
 // import restProvider from 'ra-data-simple-rest';
 import DataProvider from "./DataProvider";
@@ -27,17 +27,18 @@ import DeveloperBoardIcon from "@material-ui/icons/DeveloperBoard";
 import Dashboard from "./Dashboard";
 import customRoutes from "./CustomRoute";
 
-// const theme = createMuiTheme({
-//   palette: {
-//     type: 'dark',
-//   }
-// });
+const theme = createMuiTheme({
+  palette: {
+    type: "dark",
+  },
+});
 
 // const dataProvider = restProvider('http://103.137.220.250:3000/api');
 
 function App() {
   return (
     <Admin
+      theme={theme}
       layout={(props) => <Layout {...props} menu={TreeMenu} />}
       disableTelemetry
       customRoutes={customRoutes}
@@ -47,32 +48,7 @@ function App() {
       <Resource
         icon={UserIcon}
         name="users"
-        options={{ label: "Users", isMenuParent: true }}
-        list={UserList}
-        create={UserCreate}
-        edit={UserEdit}
-      />
-      {/* Child menu of 'Users' */}
-      <Resource
-        icon={UserIcon}
-        name="admin"
-        options={{ label: "Admin", menuParent: "users" }}
-        list={UserList}
-        create={UserCreate}
-        edit={UserEdit}
-      />
-      <Resource
-        icon={UserIcon}
-        name="faculty"
-        options={{ label: "roles", menuParent: "users" }}
-        list={UserList}
-        create={UserCreate}
-        edit={UserEdit}
-      />
-      <Resource
-        icon={UserIcon}
-        name="student"
-        options={{ label: "roles", menuParent: "users" }}
+        options={{ label: "Users" }}
         list={UserList}
         create={UserCreate}
         edit={UserEdit}

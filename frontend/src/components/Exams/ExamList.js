@@ -14,12 +14,13 @@ const ExamList = (props) => {
   return (
     <List {...props}>
       <Datagrid>
-        <ReferenceField source="course" reference="courses">
-          <ChipField source="title" />
-        </ReferenceField>
         <ReferenceField source="program" reference="programs">
           <ChipField source="title" />
         </ReferenceField>
+        <ReferenceField source="course" reference="courses">
+          <ChipField source="course_id" />
+        </ReferenceField>
+
         <TextField label="Exam Title" source="title" />
         <DateField label="Start" source="examDate.start" />
         <DateField label="End" source="examDate.end" />

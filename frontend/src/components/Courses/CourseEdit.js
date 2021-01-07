@@ -5,6 +5,8 @@ import {
   TextInput,
   required,
   ReferenceInput,
+  ReferenceArrayInput,
+  SelectArrayInput,
   SelectInput,
 } from "react-admin";
 
@@ -12,14 +14,14 @@ const CourseEdit = (props) => {
   return (
     <Edit title="Edit Course" {...props}>
       <SimpleForm>
-        <ReferenceInput
-          label="Tagged Program"
+        <ReferenceArrayInput
+          label="Tag Programs"
           source="tags"
           reference="programs"
           validate={required()}
         >
-          <SelectInput optionText="title" validate={required()} />
-        </ReferenceInput>
+          <SelectArrayInput optionText="title" validate={required()} />
+        </ReferenceArrayInput>
         <TextInput label="Course Id" source="course_id" validate={required()} />
         <TextInput source="title" validate={required()} />
         <TextInput source="description" validate={required()} />

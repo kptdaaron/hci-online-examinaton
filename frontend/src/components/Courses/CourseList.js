@@ -6,6 +6,7 @@ import {
   EditButton,
   DeleteButton,
   ReferenceManyField,
+  ReferenceArrayField,
   ReferenceField,
   SingleFieldList,
   ChipField,
@@ -18,9 +19,11 @@ const CourseList = (props) => {
         <TextField source="course_id" />
         <TextField source="title" />
         <TextField source="description" />
-        <ReferenceField source="tags" reference="programs">
-          <ChipField source="title" />
-        </ReferenceField>
+        <ReferenceArrayField source="tags" reference="programs">
+          <SingleFieldList>
+            <ChipField source="title" />
+          </SingleFieldList>
+        </ReferenceArrayField>
         <EditButton basePath="/courses" />
         <DeleteButton basePath="/courses" />
       </Datagrid>

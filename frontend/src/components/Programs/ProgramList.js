@@ -9,6 +9,8 @@ import {
   ReferenceField,
   ArrayField,
   ChipField,
+  ReferenceArrayField,
+  SingleFieldList,
 } from "react-admin";
 
 const ProgramList = (props) => {
@@ -17,9 +19,11 @@ const ProgramList = (props) => {
       <Datagrid>
         <TextField label="Program Name" source="title" />
         <TextField label="Description" source="description" />
-        <ArrayField source="tags" reference="courses">
-          <ChipField source="course_id" />
-        </ArrayField>
+        <ReferenceArrayField source="tags" reference="courses">
+          <SingleFieldList>
+            <ChipField source="course_id" />
+          </SingleFieldList>
+        </ReferenceArrayField>
         <EditButton basePath="/programs" />
         <DeleteButton basePath="/programs" />
       </Datagrid>

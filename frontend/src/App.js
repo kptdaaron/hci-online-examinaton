@@ -29,16 +29,15 @@ import customRoutes from "./CustomRoute";
 
 const theme = createMuiTheme({
   palette: {
-    type: "dark",
+    type: "light",
   },
 });
 
-// const dataProvider = restProvider('http://103.137.220.250:3000/api');
+// const dataProvider = restProvider('http://localhost:3000/api');
 
 function App() {
   return (
     <Admin
-      theme={theme}
       layout={(props) => <Layout {...props} menu={TreeMenu} />}
       disableTelemetry
       customRoutes={customRoutes}

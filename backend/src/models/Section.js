@@ -7,8 +7,8 @@ const SectionSchema = new Schema({
     course: { type: mongoose.Schema.Types.ObjectId, ref: 'Course' },
     name: { type: String, required: true, unique: true },
     students: [{type: mongoose.Schema.Types.ObjectId, ref: 'Role'}], 
-    timestamp: { type: Date}
-})
-
+    
+},
+{timestamps: true});
 const Section = mongoose.model('sections', SectionSchema);
 module.export = Section;

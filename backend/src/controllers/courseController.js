@@ -13,7 +13,7 @@ module.exports = {
   },
 
   //#get the list of courses
-  fetch: async (req, res) => {
+  fetch: async (req, res) => {          
     try {
       const courses = await Course.find({});
       const count = await Course.countDocuments({});

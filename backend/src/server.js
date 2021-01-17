@@ -5,16 +5,6 @@ const programRoutes = require("./routes/programRoute");
 const courseRoutes = require("./routes/courseRoute");
 const examRoutes = require("./routes/examRoute");
 
-// for fastify server setup
-// const fastify = require("fastify")();
-// const app = fastify;
-
-// app.register(require('fastify-cors'), {
-//   origin: /^http:\/\/103\.137\.220\.250:5000/
-// })
-// const userRange = app.addHook('preHandler', userRangeHook);
-
-// for express server setup
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const express = require("express");
@@ -23,6 +13,7 @@ var corsOptions = {
   origin: "localhost",
 };
 app.use(cors(corsOptions));
+
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -54,23 +45,6 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
-
-// function initial() {
-//   Role.estimatedDocumentCount((err, count) => {
-//     if (!err && count === 0) {
-//       new Role({
-//         name: "admin",
-//         members: Array,
-//       }).save((err) => {
-//         if (err) {
-//           console.log("error", err);
-//         }
-
-//         console.log("added 'admin' to roles collection");
-//       });
-//     }
-//   });
-// }
 
 userRoutes(app);
 roleRoutes(app);

@@ -13,6 +13,7 @@ const UserSchema = new Schema(
     exam: [{ type: mongoose.Schema.Types.ObjectId, ref: "Exam" }],
     course: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
     program: [{ type: mongoose.Schema.Types.ObjectId, ref: "Program" }],
+    section: [{ type: mongoose.Schema.Types.ObjectId, ref: "Section" }],
   },
   { timestamps: true }
 );

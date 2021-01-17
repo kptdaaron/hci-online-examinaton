@@ -69,7 +69,12 @@ const ExamForm = (props) => (
               </Typography>
               <ArrayInput source="questions">
                 <SimpleFormIterator>
-                  <TextInput label="Question" source="body" fullWidth />
+                  <TextInput
+                    multiline
+                    label="Question"
+                    source="body"
+                    fullWidth
+                  />
                   <Box display="flex">
                     <Box mr="0.5em">
                       <TextInput
@@ -81,10 +86,10 @@ const ExamForm = (props) => (
                       <TextInput label="Other Choice" source="choices.b.text" />
                     </Box>
                     <Box ml="0.5em">
-                      <TextInput label="Other Choice" source="choices.b.text" />
+                      <TextInput label="Other Choice" source="choices.c.text" />
                     </Box>
                     <Box ml="0.5em">
-                      <TextInput label="Other Choice" source="choices.b.text" />
+                      <TextInput label="Other Choice" source="choices.d.text" />
                     </Box>
                   </Box>
                 </SimpleFormIterator>

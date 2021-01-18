@@ -16,6 +16,7 @@
     "react": "^16.13.1",
     "react-admin": "^3.9.3",
     "react-admin-date-inputs": "^1.1.4",
+    "react-admin-import-csv": "^1.0.16",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3"
   },

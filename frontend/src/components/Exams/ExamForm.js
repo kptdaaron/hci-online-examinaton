@@ -45,7 +45,7 @@ const ExamForm = (props) => (
                     source="course"
                     reference="courses"
                   >
-                    <SelectInput optionText="title" fullWidth />
+                    <SelectInput optionText="course_id" fullWidth />
                   </ReferenceInput>
                 </Box>
               </Box>
@@ -69,29 +69,27 @@ const ExamForm = (props) => (
               </Typography>
               <ArrayInput source="questions">
                 <SimpleFormIterator>
+                  <TextInput label="Question" source="body" fullWidth />
                   <TextInput
-                    multiline
-                    label="Question"
-                    source="body"
+                    label="Correct Answer"
+                    source="choices.a.text"
                     fullWidth
                   />
-                  <Box display="flex">
-                    <Box mr="0.5em">
-                      <TextInput
-                        label="Correct Answer"
-                        source="choices.a.text"
-                      />
-                    </Box>
-                    <Box ml="0.5em">
-                      <TextInput label="Other Choice" source="choices.b.text" />
-                    </Box>
-                    <Box ml="0.5em">
-                      <TextInput label="Other Choice" source="choices.c.text" />
-                    </Box>
-                    <Box ml="0.5em">
-                      <TextInput label="Other Choice" source="choices.d.text" />
-                    </Box>
-                  </Box>
+                  <TextInput
+                    label="Other Choice"
+                    source="choices.b.text"
+                    fullWidth
+                  />
+                  <TextInput
+                    label="Other Choice"
+                    source="choices.c.text"
+                    fullWidth
+                  />
+                  <TextInput
+                    label="Other Choice"
+                    source="choices.d.text"
+                    fullWidth
+                  />
                 </SimpleFormIterator>
               </ArrayInput>
             </Box>

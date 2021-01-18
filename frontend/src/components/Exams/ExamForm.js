@@ -2,18 +2,15 @@ import * as React from "react";
 import {
   FormWithRedirect,
   DateInput,
-  SelectArrayInput,
   TextInput,
   SaveButton,
   DeleteButton,
-  NullableBooleanInput,
   ReferenceInput,
   SelectInput,
   NumberInput,
   ArrayInput,
   SimpleFormIterator,
 } from "react-admin";
-import { RichTextInput } from "ra-input-rich-text";
 import { Typography, Box, Toolbar } from "@material-ui/core";
 
 const ExamForm = (props) => (

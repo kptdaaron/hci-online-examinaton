@@ -23,14 +23,6 @@ const UserCreate = (props) => {
         <PasswordInput source="password" validate={required()} fullWidth />
         <TextInput source="firstName" validate={required()} fullWidth />
         <TextInput source="lastName" validate={required()} fullWidth />
-        <ReferenceInput
-          label="Select Role"
-          source="role"
-          reference="role"
-          validate={required()}
-        >
-          <SelectInput optionText="name" validate={required()} fullWidth />
-        </ReferenceInput>
       </SimpleForm>
     </Create>
   );

@@ -13,9 +13,6 @@ import {
 import { ImportButton } from "react-admin-import-csv";
 import { CreateButton, ExportButton } from "ra-ui-materialui";
 
-
-
-
 const UserList = (props) => {
   
   const ListActions = (props) => {
@@ -50,9 +47,6 @@ const UserList = (props) => {
         <EmailField source="email" />
         <TextField source="firstName" />
         <TextField source="lastName" />
-        <ReferenceField source="role" reference="role">
-          <ChipField source="name" />
-        </ReferenceField>
         <EditButton basePath="/users" />
         <DeleteButton basePath="/users" />
       </Datagrid>

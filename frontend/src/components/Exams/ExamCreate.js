@@ -51,16 +51,16 @@ const ExamCreate = (props) => {
               </Box>
               <Box display="flex">
                 <Box flex={1} mr="0.5em">
-                  <DateInput source="examDate.start" fullWidth />
+                  <DateInput source="examDate.start" label="Date Start" fullWidth />
                 </Box>
                 <Box flex={1} mr="0.5em">
-                  <DateInput source="examDate.end" fullWidth />
+                  <DateInput source="examDate.end" label="Date End" fullWidth />
                 </Box>
                 <Box flex={1} ml="0.5em">
-                  <NumberInput source="duration" fullWidth />
+                  <NumberInput source="duration" label="Duration (in minutes)" fullWidth />
                 </Box>
                 <Box flex={1} ml="0.5em">
-                  <NumberInput source="marks" fullWidth />
+                  <NumberInput source="marks" label="Marks (per answer)" fullWidth />
                 </Box>
               </Box>
               <TextInput source="title" resource="exams" fullWidth />

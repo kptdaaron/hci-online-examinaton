@@ -10,9 +10,6 @@ const UserEdit = (props) => {
                 <PasswordInput source='password' validate={required()} />
                 <TextInput source='firstName' validate={required()} />
                 <TextInput source='lastName' validate={required()} />
-                <ReferenceInput label='Select Role' source='role' reference='role' validate={required()}>
-                    <SelectInput optionText='name' validate={required()} fullWidth />
-                </ReferenceInput>
             </SimpleForm>
         </Edit>
     )

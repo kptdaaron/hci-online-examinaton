@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoute");
+const facultyRoutes = require("./routes/facultyRoute");
+const adminRoutes = require("./routes/adminRoute");
 const roleRoutes = require("./routes/roleRoute");
 const programRoutes = require("./routes/programRoute");
 const courseRoutes = require("./routes/courseRoute");
@@ -47,7 +49,8 @@ app.listen(PORT, () => {
 });
 
 userRoutes(app);
-roleRoutes(app);
+adminRoutes(app);
+facultyRoutes(app);
 programRoutes(app);
 courseRoutes(app);
 examRoutes(app);

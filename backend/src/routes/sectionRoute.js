@@ -1,18 +1,18 @@
 const sectionController = require("../controllers/sectionController");
 
 module.exports = (app) => {
-  //# create a note
+  //# create a section
   app.post("/api/sections", sectionController.create);
 
   //#get the list of sections
   app.get("/api/sections", sectionController.fetch);
 
-  //#get a single note
+  //#get a single section
   app.get("/api/sections/:id", sectionController.get);
 
-  //#update a note
+  //#update a section
   app.put("/api/sections/:id", sectionController.update);
 
-  //#delete a note
+  //#delete a section
   app.delete("/api/sections/:id", sectionController.delete);
 };

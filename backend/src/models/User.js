@@ -9,11 +9,10 @@ const UserSchema = new Schema(
     password: { type: String, required: true, minlength: 5 },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    role: { type: mongoose.Schema.Types.ObjectId, ref: "Role" },
-    exam: [{ type: mongoose.Schema.Types.ObjectId, ref: "Exam" }],
-    course: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
-    program: [{ type: mongoose.Schema.Types.ObjectId, ref: "Program" }],
-    section: [{ type: mongoose.Schema.Types.ObjectId, ref: "Section" }],
+    exams: [{ type: mongoose.Schema.Types.ObjectId, ref: "Exam" }],
+    courses: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
+    programs: [{ type: mongoose.Schema.Types.ObjectId, ref: "Program" }],
+    sections: [{ type: mongoose.Schema.Types.ObjectId, ref: "Section" }],
   },
   { timestamps: true }
 );

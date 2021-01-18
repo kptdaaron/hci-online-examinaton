@@ -1,18 +1,18 @@
 const programController = require("../controllers/programController");
 
 module.exports = (app) => {
-  //# create a note
+  //# create a program
   app.post("/api/programs", programController.create);
 
   //#get the list of program
   app.get("/api/programs", programController.fetch);
 
-  //#get a single note
+  //#get a single program
   app.get("/api/programs/:id", programController.get);
 
-  //#update a note
+  //#update a program
   app.put("/api/programs/:id", programController.update);
 
-  //#delete a note
+  //#delete a program
   app.delete("/api/programs/:id", programController.delete);
 };

@@ -12,7 +12,7 @@ import {
 
 const ExamList = (props) => {
   return (
-    <List {...props}>
+    <List undoable={false} {...props}>
       <Datagrid>
         <ReferenceField source="program" reference="programs">
           <ChipField source="title" />

@@ -12,11 +12,19 @@ import {
   SimpleFormIterator,
 } from "react-admin";
 import { Typography, Box, Toolbar } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
 
-const ExamForm = (props) => (
-  <FormWithRedirect
+const useStyles = makeStyles({
+    inlineBlock: { display: 'inline-flex', marginRight: '1rem' },
+});
+
+const ExamForm = (props) =>  {
+    const classes = useStyles();
+  return (
+      <FormWithRedirect
     {...props}
     render={(formProps) => (
+      
       // here starts the custom form layout
       <form>
         <Box p="1em">
@@ -68,24 +76,24 @@ const ExamForm = (props) => (
                 <SimpleFormIterator>
                   <TextInput label="Question" source="body" fullWidth />
                   <TextInput
-                    label="Correct Answer"
+                    label="Option B"
                     source="choices.a.text"
-                    fullWidth
+                    formClassName={classes.inlineBlock}
                   />
                   <TextInput
-                    label="Other Choice"
+                    label="Option C"
                     source="choices.b.text"
-                    fullWidth
+                    formClassName={classes.inlineBlock}
                   />
                   <TextInput
-                    label="Other Choice"
+                    label="Option D"
                     source="choices.c.text"
-                    fullWidth
+                    formClassName={classes.inlineBlock}
                   />
                   <TextInput
                     label="Other Choice"
                     source="choices.d.text"
-                    fullWidth
+                    formClassName={classes.inlineBlock}
                   />
                 </SimpleFormIterator>
               </ArrayInput>
@@ -105,6 +113,7 @@ const ExamForm = (props) => (
       </form>
     )}
   />
-);
+  )
+}
 
 export default ExamForm;

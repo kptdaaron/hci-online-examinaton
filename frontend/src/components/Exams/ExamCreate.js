@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 const ExamCreate = (props) => {
   const classes = useStyles();
   return (
-    <Create title="Create Exam" {...props}>
+    <Create undoable={false} title="Create Exam" {...props}>
 <FormWithRedirect
     {...props}
     render={(formProps) => (

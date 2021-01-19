@@ -96,17 +96,26 @@ export default {
       id: json._id,
     })),
 
-  deleteMany: async (resource, params) => {
-    const query = {
-      filter: JSON.stringify({ id: params.ids }),
-    };
-    const { json } = await httpClient(
-      `${apiUrl}/${resource}?${stringify(query)}`,
-      {
-        method: "DELETE",
-        body: JSON.stringify(params.data),
-      }
-    );
-    return { data: json };
-  },
+  // deleteMany: async (resource, params) => {
+  //   const query = {
+  //     filter: JSON.stringify({ id: params.ids }),
+  //   };
+  //   const { json } = await httpClient(
+  //     `${apiUrl}/${resource}?${stringify(query)}`,
+  //     {
+  //       method: "DELETE",
+  //       body: JSON.stringify(params.data),
+  //     }
+  //   );
+  //   return { data: json };
+  // },
+  deleteMany: (resource, params) => {
+        const query = {
+            filter: JSON.stringify({ id: params.ids}),
+        };
+        return httpClient(`${apiUrl}/${resource}?${stringify(query)}`, {
+            method: 'DELETE',
+            body: JSON.stringify(params.data),
+        }).then(({ json }) => ({ data: json }));
+    },
 };

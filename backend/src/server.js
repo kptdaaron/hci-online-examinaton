@@ -6,6 +6,7 @@ const roleRoutes = require("./routes/roleRoute");
 const programRoutes = require("./routes/programRoute");
 const courseRoutes = require("./routes/courseRoute");
 const examRoutes = require("./routes/examRoute");
+const sectionRoutes = require("./routes/sectionRoute");
 
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -49,6 +50,7 @@ app.listen(PORT, () => {
 });
 
 userRoutes(app);
+sectionRoutes(app);
 adminRoutes(app);
 facultyRoutes(app);
 programRoutes(app);

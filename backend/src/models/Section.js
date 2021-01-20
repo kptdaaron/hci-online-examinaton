@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-import { Schema } from mongoose;
+const Schema = mongoose.Schema;
 
 const SectionSchema = new Schema({
     id: { type: mongoose.Schema.Types.ObjectId },

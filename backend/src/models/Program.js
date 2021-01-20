@@ -8,6 +8,7 @@ const ProgramSchema = new Schema(
     title: { type: String, required: true, unique: true },
     description: { type: String, required: true },
     tags: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
+    faculty: [{ type: mongoose.Schema.Types.ObjectId, ref: "Faculty"}]
   },
   { timestamps: true }
 );

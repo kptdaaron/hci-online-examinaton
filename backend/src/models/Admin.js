@@ -9,6 +9,11 @@ const AdminSchema = new Schema(
     password: { type: String, required: true, minlength: 5 },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
+    role: {
+      isAdmin: { type: Boolean, default: true },
+      isFaculty: { type: Boolean, default: false },
+      isStudent: { type: Boolean, default: false },
+    },
   },
   { timestamps: true }
 );

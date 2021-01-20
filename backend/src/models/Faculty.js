@@ -9,6 +9,11 @@ const FacultySchema = new Schema(
     password: { type: String, required: true, minlength: 5 },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
+    role: {
+      isAdmin: { type: Boolean, default: false },
+      isFaculty: { type: Boolean, default: true },
+      isStudent: { type: Boolean, default: false },
+    },
     programs: [
       {
         type: mongoose.Schema.Types.ObjectId,
@@ -19,6 +24,12 @@ const FacultySchema = new Schema(
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Course",
+      },
+    ],
+    exams: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Exam",
       },
     ],
     sections: [

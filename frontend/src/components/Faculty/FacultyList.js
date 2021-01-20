@@ -7,6 +7,7 @@ import {
   DeleteButton,
   EmailField,
   ReferenceField,
+  ReferenceArrayField, SingleFieldList,
   ChipField,
   TopToolbar,
 } from "react-admin";
@@ -46,6 +47,11 @@ const FacultyList = (props) => {
         <EmailField source="email" />
         <TextField source="firstName" />
         <TextField source="lastName" />
+        {/* <ReferenceArrayField source="exams" reference="faculty">
+          <SingleFieldList>
+            <ChipField source="name" />
+          </SingleFieldList>
+        </ReferenceArrayField> */}
         <EditButton basePath="/faculty" />
         <DeleteButton basePath="/faculty" />
       </Datagrid>

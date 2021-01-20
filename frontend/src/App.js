@@ -37,7 +37,6 @@ import UserIcon from "@material-ui/icons/People";
 import BallotIcon from "@material-ui/icons/Ballot";
 import DeveloperBoardIcon from "@material-ui/icons/DeveloperBoard";
 import Dashboard from "./Dashboard";
-import customRoutes from "./CustomRoute";
 
 const theme = createMuiTheme({
   palette: {
@@ -50,7 +49,6 @@ function App() {
     <Admin
       layout={(props) => <Layout {...props} menu={TreeMenu} />}
       disableTelemetry
-      customRoutes={customRoutes}
       dashboard={Dashboard}
       dataProvider={DataProvider}
     >

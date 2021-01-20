@@ -9,6 +9,11 @@ const UserSchema = new Schema(
     password: { type: String, required: true, minlength: 5 },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
+    role: {
+      isAdmin: {type: Boolean, default: false},
+      isFaculty: {type: Boolean, default: false},
+      isStudent: {type: Boolean, default: true},
+    },
     exams: [{ type: mongoose.Schema.Types.ObjectId, ref: "Exam" }],
     courses: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
     programs: [{ type: mongoose.Schema.Types.ObjectId, ref: "Program" }],

@@ -5,7 +5,7 @@ const ExamSchema = new Schema(
   {
     id: { type: mongoose.Schema.Types.ObjectId },
     exam_id: { type: mongoose.Schema.Types.ObjectId },
-    author: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Faculty' }],
+    author: { type: mongoose.Schema.Types.ObjectId, ref: 'Faculty' },
     program: [{ type: mongoose.Schema.Types.ObjectId, ref: "Program" }],
     course: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }],
     section: [{ type: mongoose.Schema.Types.ObjectId, ref: "Section" }],

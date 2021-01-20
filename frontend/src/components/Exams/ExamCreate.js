@@ -13,10 +13,17 @@ import {
 } from "react-admin";
 import { Typography, Box, Toolbar } from "@material-ui/core";
 
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+    inlineBlock: { display: 'inline-flex', marginRight: '1rem' },
+});
+
 
 const ExamCreate = (props) => {
+  const classes = useStyles();
   return (
-    <Create title="Create Exam" {...props}>
+    <Create undoable={false} title="Create Exam" {...props}>
 <FormWithRedirect
     {...props}
     render={(formProps) => (
@@ -67,34 +74,39 @@ const ExamCreate = (props) => {
               <Typography variant="h6" gutterBottom>
                 Question Details
               </Typography>
-              <ArrayInput source="questions">
+            </Box>
+          </Box>
+          <ArrayInput source="questions">
                 <SimpleFormIterator>
-                  <TextInput label="Question" source="body" fullWidth />
+                  <TextInput label="Question body" source="body" fullWidth />
                   <TextInput
                     label="Correct Answer"
                     source="choices.a.text"
-                    fullWidth
+                    formClassName={classes.inlineBlock}
+                    
                   />
                   <TextInput
-                    label="Other Choice"
+                    label="Option B"
                     source="choices.b.text"
-                    fullWidth
+                    formClassName={classes.inlineBlock}
+                    
                   />
                   <TextInput
-                    label="Other Choice"
+                    label="Option C"
                     source="choices.c.text"
-                    fullWidth
+                    formClassName={classes.inlineBlock}
+                    
                   />
                   <TextInput
-                    label="Other Choice"
+                    label="Option D"
                     source="choices.d.text"
-                    fullWidth
+                    formClassName={classes.inlineBlock}
+                    
                   />
                 </SimpleFormIterator>
               </ArrayInput>
-            </Box>
-          </Box>
         </Box>
+        
 
         <Toolbar>
           <Box display="flex" justifyContent="space-between" width="100%">

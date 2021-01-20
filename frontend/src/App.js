@@ -37,6 +37,14 @@ import UserIcon from "@material-ui/icons/People";
 import BallotIcon from "@material-ui/icons/Ballot";
 import DeveloperBoardIcon from "@material-ui/icons/DeveloperBoard";
 import Dashboard from "./Dashboard";
+<<<<<<< HEAD
+=======
+
+
+// import for auth
+import authProvider from "./authProvider"
+import MyLoginPage from "./MyLoginPage"
+>>>>>>> b8ed6ebb9c920a600957d8fe3a7f3501af9c31b2
 
 const theme = createMuiTheme({
   palette: {
@@ -49,6 +57,8 @@ function App() {
     <Admin
       layout={(props) => <Layout {...props} menu={TreeMenu} />}
       disableTelemetry
+      authProvider={authProvider} 
+      // loginPage={MyLoginPage}
       dashboard={Dashboard}
       dataProvider={DataProvider}
     >

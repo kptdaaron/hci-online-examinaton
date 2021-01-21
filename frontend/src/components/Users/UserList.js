@@ -41,7 +41,7 @@ const UserList = (props) => {
   };
 
   return (
-    <List {...props} actions={<ListActions />}>
+    <List undoable={true} {...props} actions={<ListActions />}>
       <Datagrid>
         <TextField label="Id" source="user_id" />
         <EmailField source="email" />
